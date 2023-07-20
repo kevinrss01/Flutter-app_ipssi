@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ipssisqy2023/controller/my_permission.dart';
+import 'package:ipssisqy2023/view/laoding_view.dart';
 import 'package:ipssisqy2023/view/register_view.dart';
 import 'package:ipssisqy2023/view/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,6 +32,17 @@ class _MyAppState extends State<MyApp> {
     const LoginView(),
     // Ajoutez les autres écrans que vous souhaitez afficher dans la navigation ici
   ];
+
+  void initState() {
+    GoogleMap;
+  }
+
+  Future<void> delaySwitch(int index) async {
+    await Future.delayed(const Duration(seconds: 3));
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   void _onTabTapped(int index) {
     setState(() {

@@ -14,7 +14,7 @@ class FirestoreHelper{
 
   // Future obligatoire car la fonction retourne quelque chose
   //inscription
-  Future <MyUser> register(String email , String password, String nom, String prenom, String pseudo) async {
+  Future <MyUser> register(String email , String password, String nom, String prenom, String pseudo, String gender, String phoneNumber) async {
     UserCredential result = await auth.createUserWithEmailAndPassword(email: email, password: password);
 
     String uid = result.user?.uid ?? "";
@@ -23,6 +23,8 @@ class FirestoreHelper{
       "NOM": nom,
       "PRENOM":prenom,
       "PSEUDO":pseudo,
+      "GENDER": gender,
+      "PHONE_NUMBER": phoneNumber,
     };
     addUser(uid, map);
     return await getUser(uid);
