@@ -53,7 +53,7 @@ import "../view/one_user_data.dart";
                     child: Column(
                       children: [
                         CircleAvatar(
-                          radius: 80,
+                          radius: 70,
                           backgroundImage: NetworkImage(otherUser.avatar ?? defaultImage),
                       ),
                       Text(otherUser.fullName,)

@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ipssisqy2023/globale.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'dart:math';
 
 
 class MyUser {
@@ -17,8 +18,8 @@ class MyUser {
   String? genre;
   List? favoris;
   String? phoneNumber;
-
   String get fullName => "$prenom $nom";
+  Map<String, dynamic> ?messages;
 
   //
   MyUser.empty() {
@@ -26,6 +27,7 @@ class MyUser {
     mail = "";
     nom = "";
     prenom = "";
+    messages = {};
   }
 
   MyUser(DocumentSnapshot snapshot) {
@@ -66,5 +68,6 @@ class MyUser {
     favoris = map["FAVORIS"] ?? [];
     genre = map["GENRE"] ?? "Genre non spécifié";
     phoneNumber = map["PHONE_NUMBER"] ?? "";
+    messages = map["MESSAGES"] ?? {};
   }
 }

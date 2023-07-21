@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ipssisqy2023/controller/my_favorites.dart';
 import 'package:ipssisqy2023/view/my_drawer.dart';
 import 'package:ipssisqy2023/view/my_map_view.dart';
+import 'package:ipssisqy2023/view/my_messages.dart';
 
 import '../controller/all_users.dart';
 import '../controller/my_favorites.dart';
@@ -32,6 +33,15 @@ class _MyDashBoardViewState extends State<MyDashBoardView> {
       ),
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
+        title: const Text("Page d'accueil"),
+        actions: [
+          IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> MyMessages()));
+            },
+            icon: const Icon(Icons.message),
+          ),
+        ],
         //elevation: 0,
       ),
       body: bodyPage(),

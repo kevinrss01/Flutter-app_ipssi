@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ipssisqy2023/controller/my_permission.dart';
-import 'package:ipssisqy2023/view/laoding_view.dart';
 import 'package:ipssisqy2023/view/register_view.dart';
 import 'package:ipssisqy2023/view/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';

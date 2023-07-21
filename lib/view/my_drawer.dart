@@ -1,10 +1,12 @@
 import 'dart:typed_data';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ipssisqy2023/controller/firestore_helper.dart';
 import 'package:ipssisqy2023/globale.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class Mydrawer extends StatefulWidget {
   const Mydrawer({super.key});
@@ -41,17 +43,15 @@ class _MydrawerState extends State<Mydrawer> {
                       setState(() {
                         userData.avatar = value;
                       });
+
+                      Map<String,dynamic> map = {
+                        "AVATAR": value
+                      };
+                      //mettre à jour les informations de l'utilisateur
+                      FirestoreHelper().updateUser(userData.id, map);
+
+                      Navigator.pop(context);
                     });
-                    Map<String,dynamic> map = {
-                      "AVATAR": userData.avatar
-                    };
-                    //mettre à jour les informations de l'utilisateur
-                    FirestoreHelper().updateUser(userData.id, map);
-
-
-
-                    Navigator.pop(context);
-
                   }, child: const Text("Enregistrement")
               ),
             ],

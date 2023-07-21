@@ -20,7 +20,9 @@ class _AllUsersState extends State<AllUsers> {
         List documents = snap.data?.docs ?? [];
         if(documents == [] || documents.isEmpty){
           return const Center(
-            child : CircularProgressIndicator()
+            child : Center(
+              child: Text("Aucun utilisateur"),
+            )
           );
         } else {
           return ListView.builder(
